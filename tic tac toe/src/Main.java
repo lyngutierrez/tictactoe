@@ -13,7 +13,7 @@ class TicTacToe extends Frame implements ActionListener {
     private Label statusLabel;
     private boolean isXTurn;
 
-    /*public TicTacToe() {
+    public TicTacToe() {
         setTitle("Tic Tac Toe");
         setSize(300, 300);
         setLayout(new BorderLayout());
@@ -221,7 +221,7 @@ class TicTacToe extends Frame implements ActionListener {
         playButton.setEnabled(true);
         statusLabel.setText("");
     }
-*/
+
     public static void main(String[] args) {
         new TicTacToe();
     }

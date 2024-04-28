@@ -38,10 +38,10 @@ class TicTacToe extends Frame implements ActionListener {
                 int choice = JOptionPane.showOptionDialog(TicTacToe.this, "Choose your weapon:", "Player Select", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
                 if (choice == JOptionPane.YES_OPTION) {
                     isXTurn = true;
-                    statusLabel.setText("X's turn");
+                    statusLabel.setText("X turn");
                 } else {
                     isXTurn = false;
-                    statusLabel.setText("O's turn");
+                    statusLabel.setText("O turn");
                 }
                 cardLayout.show(cardPanel, "game");
                 resetGamePanel();
@@ -76,10 +76,10 @@ class TicTacToe extends Frame implements ActionListener {
                 if (buttons[i][j] == clickedButton && clickedButton.getLabel().isEmpty()) {
                     if (isXTurn) {
                         clickedButton.setLabel("X");
-                        statusLabel.setText("O's turn");
+                        statusLabel.setText("O turn");
                     } else {
                         clickedButton.setLabel("O");
-                        statusLabel.setText("X's turn");
+                        statusLabel.setText("X turn");
                     }
                     isXTurn = !isXTurn;
 
@@ -123,7 +123,7 @@ class TicTacToe extends Frame implements ActionListener {
         buttonPanel.add(backButton);
         gamePanel.add(buttonPanel);
 
-        statusLabel.setText("X's turn");
+        statusLabel.setText("X turn");
         gamePanel.add(statusLabel);
         gamePanel.revalidate();
         gamePanel.repaint();

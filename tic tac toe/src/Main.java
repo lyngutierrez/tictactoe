@@ -1,5 +1,5 @@
 // ILINE S. GUTIERREZ - CCB
-//  Tic Tac Toe is fun!.
+//  Tic Tac Toe is fun!
 
 import java.awt.*;
 import java.awt.event.*;

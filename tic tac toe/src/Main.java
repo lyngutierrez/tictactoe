@@ -35,7 +35,7 @@ class TicTacToe extends Frame implements ActionListener {
         playButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String[] options = {"X", "O"};
-                int choice = JOptionPane.showOptionDialog(TicTacToe.this, "Choose your weapon:", "Player Selection", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                int choice = JOptionPane.showOptionDialog(TicTacToe.this, "Choose your weapon:", "Player Select", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
                 if (choice == JOptionPane.YES_OPTION) {
                     isXTurn = true;
                     statusLabel.setText("X's turn");

@@ -28,28 +28,38 @@ class TicTacToe extends Frame implements ActionListener {
         Panel welcomePanel = new Panel(new BorderLayout());
         Panel centerPanel = new Panel(new FlowLayout(FlowLayout.CENTER));
         Label welcomeLabel = new Label("Welcome to Tic Tac Toe");
+
+        // font
+        Font font =new Font("Arial", Font.BOLD, 16);
+        // Set the Font
+        welcomeLabel.setFont(font);
         centerPanel.add(welcomeLabel);
         welcomePanel.add(centerPanel, BorderLayout.CENTER);
 
         playButton = new Button("Play");
+        Font buttonFont = new Font("Arial", Font.BOLD, 12); // Get the current font and make it bold
+        playButton.setFont(buttonFont); // Set the bold font for the button
+
         playButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String[] options = {"X", "O"};
                 int choice = JOptionPane.showOptionDialog(TicTacToe.this, "Choose your weapon:", "Player Select", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
                 if (choice == JOptionPane.YES_OPTION) {
                     isXTurn = true;
-                    statusLabel.setText("X turn");
+                    statusLabel.setText(" X ");
                 } else {
                     isXTurn = false;
-                    statusLabel.setText("O turn");
+                    statusLabel.setText(" O ");
                 }
                 cardLayout.show(cardPanel, "game");
                 resetGamePanel();
             }
         });
+
         Panel playButtonPanel = new Panel(new FlowLayout(FlowLayout.CENTER));
         playButtonPanel.add(playButton);
         welcomePanel.add(playButtonPanel, BorderLayout.SOUTH);
+
 
         // Create Tic Tac Toe game panel
         gamePanel = new Panel(new GridLayout(4, 3));
@@ -85,7 +95,7 @@ class TicTacToe extends Frame implements ActionListener {
 
                     if (checkWinner()) {
                         String winner = isXTurn ? "O" : "X";
-                        JOptionPane.showMessageDialog(this, winner + " wins!", "Winner", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, winner + " wins!", "The Winner Is!!!", JOptionPane.INFORMATION_MESSAGE);
                         showEndGameOptions();
                         disableButtons();
                     } else if (isBoardFull()) {
@@ -114,6 +124,9 @@ class TicTacToe extends Frame implements ActionListener {
         // Add an additional row with the "Main Menu" button
         Panel buttonPanel = new Panel(new FlowLayout());
         Button backButton = new Button("Main Menu");
+        //font
+        Font buttonFont = new Font( "Arial", Font.BOLD, 12);
+        backButton.setFont(buttonFont);
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardPanel, "welcome");
@@ -182,7 +195,13 @@ class TicTacToe extends Frame implements ActionListener {
 
     private void showEndGameOptions() {
         gamePanel.removeAll();
+
+        // Define the font you want to use
+        Font buttonFont = new Font("Arial", Font.BOLD, 14); // Example: Arial, Bold, Size 14
+
+        // New Game Button
         Button newGameButton = new Button("New Game");
+        newGameButton.setFont(buttonFont); // Set font for the button
         newGameButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetGame();
@@ -191,7 +210,9 @@ class TicTacToe extends Frame implements ActionListener {
         });
         gamePanel.add(newGameButton);
 
+        // Back Button
         Button backButton = new Button("Main Menu");
+        backButton.setFont(buttonFont); // Set font for the button
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardPanel, "welcome");
@@ -200,7 +221,9 @@ class TicTacToe extends Frame implements ActionListener {
         });
         gamePanel.add(backButton);
 
+        // Exit Button
         Button exitButton = new Button("Exit");
+        exitButton.setFont(buttonFont); // Set font for the button
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -224,6 +247,7 @@ class TicTacToe extends Frame implements ActionListener {
     }
 
     public static void main(String[] args) {
+
         new TicTacToe();
     }
 }
